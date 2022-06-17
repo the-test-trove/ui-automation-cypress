@@ -17,11 +17,11 @@ describe('Add to Cart Test', () => {
     it('Verify User not should be able add items to the cart without succesful login', () => {
       
         cy.visit(Cypress.config().baseUrl);
-        LoginPage.setUserName("standard_users").setPassWord("secret_sauce").clickLoginButton() 
+        LoginPage.setUserName("standard_user").setPassWord("secret_sauce").clickLoginButton() 
         ProductPage.getPageTitle().then(title => 
             {
                 cy.log(title.text())
-                expect(title.text()).eq("PRODUCTS")
+                expect(title.text()).eq("Products")
             })
         ProductPage.getAllProducts().then(item => cy.log(item.text()))
         ProductPage.addItemToCart().click()
