@@ -6,7 +6,7 @@
     "pageLoadTimeout":40000,
     "hideXHR": false,
     "failOnStatusCode": false,
-    "video": true,
+    "video": false,
     "experimentalSessionAndOrigin": true,
     "retries": {
      "runMode": 1,
