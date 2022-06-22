@@ -9,7 +9,9 @@ describe('Add to Cart Test', () => {
         cy.visit(Cypress.config().baseUrl);
         LoginPage.setUserName("standard_user").setPassWord("secret_sauce").clickLoginButton() 
         ProductPage.getPageTitle().then(title => cy.log(title.text()))
-        ProductPage.getAllProducts().then(item => cy.log(item.text()))
+        ProductPage.getAllProducts().then(item => {
+            cy.log(item.length)
+        })
         ProductPage.addItemToCart().click()
 
     });

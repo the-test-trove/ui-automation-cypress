@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+/// <reference types="Cypress" />
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -32,3 +33,7 @@ if (Cypress.config('hideXHR')) {
       app.document.head.appendChild(style);
     }
 }
+
+afterEach(function() {
+   cy.log(this.currentTest.state + this.currentTest.title+ this.currentTest.body + this.currentTest.parent.title + this.currentTest.file)
+});
