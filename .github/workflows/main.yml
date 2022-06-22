@@ -13,7 +13,7 @@ jobs:
       - name: Install Packages
         run:  npm install  
       - name: npx cypress run --env allure=true
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
           start: npx cypress run --env allure=true
       - name: Get Allure history
