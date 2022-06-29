@@ -14,7 +14,7 @@ const TEST_FOLDER = './cypress/integration';
 console.log(getSpecFiles().join(','))
 
 function getSpecFiles() {
-  const allSpecFiles = travese(TEST_FOLDER);
+  const allSpecFiles = traverse(TEST_FOLDER);
   console.log("The number of sepcs:"+ allSpecFiles.sort()
   .filter((_, index) => (index % NODE_TOTAL) === (NODE_INDEX - 1)).length)
   return allSpecFiles.sort()
@@ -22,12 +22,12 @@ function getSpecFiles() {
    
 }
 
-function travese(dir) {
+function traverse(dir) {
   let files = fs.readdirSync(dir);
   files = files.map(file => {
     const filePath = path.join(dir, file);
     const stats = fs.statSync(filePath);
-    if (stats.isDirectory()) return walk(filePath);
+    if (stats.isDirectory()) return traverse(filePath);
     else if (stats.isFile())return filePath;
   });
 
