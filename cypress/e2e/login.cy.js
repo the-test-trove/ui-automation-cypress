@@ -7,4 +7,11 @@ describe('Login Page Tests', () => {
        LoginPage.setUserName("standard_user").setPassWord("secret_sauce").clickLoginButton() 
 
     });
+
+    it('Verify User should be able to login with valid credentials Test', () => {
+      
+        cy.visit(Cypress.config().baseUrl);
+       LoginPage.setUserName("standard_user").setPassWord("secret_sauce").clickLoginButton() 
+
+    });
 });
