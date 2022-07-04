@@ -9,7 +9,7 @@ module.exports = defineConfig({
   pageLoadTimeout: 40000,
   hideXHR: false,
   failOnStatusCode: false,
-  video: true,
+  video: false,
   retries: {
     runMode: 1,
     openMode: 0,
