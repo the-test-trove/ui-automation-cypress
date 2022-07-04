@@ -1,8 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Jun 29 13:16:35 GMT 2022","Wed Jun 29 13:16:36 GMT 2022","777","","Login Page Tests Custom Command","","","","User Login attemptproblem_user",""
-"passed","Wed Jun 29 13:16:29 GMT 2022","Wed Jun 29 13:16:30 GMT 2022","1315","","Login Page Tests","","","","Verify User should be able to login with valid credentials",""
-"passed","Wed Jun 29 13:16:34 GMT 2022","Wed Jun 29 13:16:35 GMT 2022","927","","Login Page Tests Custom Command","","","","User Login attemptlocked_out_user",""
-"passed","Wed Jun 29 13:16:33 GMT 2022","Wed Jun 29 13:16:34 GMT 2022","932","","Login Page Tests Custom Command","","","","User Login attemptstandard_user",""
-"passed","Wed Jun 29 13:16:24 GMT 2022","Wed Jun 29 13:16:25 GMT 2022","1729","","Add to Cart Test","","","","Verify User should be able to login with valid credentials and add items to the cart",""
-"passed","Wed Jun 29 13:16:25 GMT 2022","Wed Jun 29 13:16:27 GMT 2022","1337","","Add to Cart Test","","","","Verify User not should be able add items to the cart without succesful login",""
-"passed","Wed Jun 29 13:16:36 GMT 2022","Wed Jun 29 13:16:42 GMT 2022","6022","","Login Page Tests Custom Command","","","","User Login attemptperformance_glitch_user",""
