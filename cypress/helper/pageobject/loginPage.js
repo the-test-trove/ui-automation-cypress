@@ -16,7 +16,7 @@ class LoginPage
     
         clickLoginButton()
         {
-            cy.get('[data-test="login-button"]').as("btnLogin").click()
+            cy.get('[data-test="login-button"]').as("btnLogin").click({force:true})
 
         }
 
