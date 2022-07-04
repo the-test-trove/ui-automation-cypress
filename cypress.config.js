@@ -2,6 +2,10 @@ const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   chromeWebSecurity: false,
+  includeShadowDom: true,
+  defaultCommandTimeout: 50000,
+  taskTimeout: 80000,
+  restartBrowserBetweenSpecFiles: true,
   pageLoadTimeout: 40000,
   hideXHR: false,
   failOnStatusCode: false,
