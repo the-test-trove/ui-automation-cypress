@@ -1,0 +1,92 @@
+default:
+  tags: [shared]
+image:  cypress/browsers
+
+variables:
+  wd: '$CI_PROJECT_PATH'
+  CYPRESS_RECORD: '$CYPRESS_KEY'
+  CYPRESS_USERNAME: "$CYPRESS_UNAME"
+  CYPRESS_PASSWORD: "$CYPRESS_PASS"
+  CYPRESS_ENV: "$ENV"
+  CYPRESS_STAGE: "$CYPRESS_HOST"
+  CYPRESS_QA: "$QA_HOST"
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+stages:
+  - test
+  - reporting
+  - notify
+
+test:
+  stage: test
+  cache:
+    paths:
+      - .npm
+      - cache/Cypress
+      - node_modules
+  parallel: 9    
+  script:
+    - npm run pretest
+    - npm install
+    - export CYPRESS_USERAME=$CYPRESS_USERNAME
+    - export CYPRESS_PASSWORD=$CYPRESS_PASSWORD
+    - export CYPRESS_ENVIRONMENT=$ENV
+    - export CYPRESS_HOST=$CYPRESS_STAGE
+    - npx cypress run --browser chrome --headless --spec $(node cypress-parallel.js) --env ENVIRONMENT=$ENV,USERNAME=$CYPRESS_UNAME,PASSWORD=$CYPRESS_PASS,STAGE_HOST=$CYPRESS_STAGE,QA_HOST=$CYPRESS_QA,JIRA=$CYPRESS_JIRA_LINK 
+  allow_failure: true
+  artifacts:
+    expire_in: 30 days
+    when: always
+    paths:
+      - e2e/reports/
+      - cypress/screenshots/
+      - cypress/videos/
+
+
+pages:
+  stage: reporting
+  cache:
+    paths:
+      - .npm
+      - cache/Cypress
+      - node_modules
+  before_script:
+    - npm install
+  needs:
+    - test
+  dependencies:
+    - test
+  script:
+    - npm run combinereports
+    - npm run e2e:report:html
+    - cp -r e2e/reports/ public/
+    - cp -r cypress/ public/
+  when: always
+  artifacts:
+    paths:
+      - public/
+      - e2e/reports/
+      - cypress/screenshots/
+      - cypress/videos/
+
+  tags:
+    - shared
+
+notify:on-schedule: 
+  stage: notify
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+  needs: 
+    - test
+    - pages
+  dependencies: 
+    - test
+    - pages
+  image: python
+  before_script:
+    - pip3 install requests
+  script:
+    - python3 sendmail.py
+  tags:
+    - shared
