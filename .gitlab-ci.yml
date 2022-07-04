@@ -33,6 +33,7 @@ test:
     - export CYPRESS_PASSWORD=$CYPRESS_PASSWORD
     - export CYPRESS_ENVIRONMENT=$ENV
     - export CYPRESS_HOST=$CYPRESS_STAGE
+    - npx cypress run --parallel --record --ci-build-id $CI_PIPELINE_ID
     - NO_COLOR=1 npx cypress run --browser chrome --headless --spec $(node cypress-parallel.js) --env ENVIRONMENT=$ENV,USERNAME=$CYPRESS_UNAME,PASSWORD=$CYPRESS_PASS,STAGE_HOST=$CYPRESS_STAGE,QA_HOST=$CYPRESS_QA,JIRA=$CYPRESS_JIRA_LINK 
   allow_failure: true
   artifacts:
