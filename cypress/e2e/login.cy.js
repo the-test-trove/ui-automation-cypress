@@ -15,4 +15,19 @@ describe('Login Page Tests', () => {
        LoginPage.setUserName("standard_user").setPassWord("secret_sauce").clickLoginButton() 
 
     });
+
+    it("Handling iframe", () =>{
+        cy.task('log', "cy.frameLoaded(Iframe_attribute)");
+        cy.task('log', "cy.iframe(iframe_attribute).find(iframe_element_to_search)");
+    })
+
+    it("Checking 404 status code", ()=>{
+       // cy.request({url: Cypress.config().baseUrl+"/abc" , failOnStatusCode: false }).then((resp)=>{
+       //     if (resp.status == '404')
+       //     {
+        //        cy.log(url+ "Status is 404")
+        //    }
+ 
+  //  })
+});
 });
