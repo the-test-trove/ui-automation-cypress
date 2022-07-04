@@ -34,6 +34,13 @@ if (Cypress.config('hideXHR')) {
       app.document.head.appendChild(style);
     }
 }
+Cypress.on('test:after:run', (test, runnable) => {
+  if (test.state === 'failed') {
+      const filename = `${titleToFileName(runnable.parent.title)} -- ${titleToFileName(test.title)} (failed).png`;
+      addContext({ test }, `cypress/screenshots/${Cypress.spec.name}/${filename}`);
+      addContext({ test }, `cypress/videos/${Cypress.spec.name}.mp4`);
+  }
+});
 
 afterEach(function() {
    cy.log(this.currentTest.state + this.currentTest.title+ this.currentTest.body + this.currentTest.parent.title + this.currentTest.file)

@@ -9,11 +9,31 @@ module.exports = defineConfig({
   pageLoadTimeout: 40000,
   hideXHR: false,
   failOnStatusCode: false,
-  video: false,
+  video: true,
   retries: {
     runMode: 1,
     openMode: 0,
   },
+  screenshotOnRunFailure: true,
+  reporter: 'cypress-multi-reporters',
+  reporterOptions: {
+    reporterEnabled: 'mochawesome',
+    mochawesomeReporterOptions: {
+      reportDir: 'e2e/reports/',
+      overwrite: 'false',
+      json: true,
+      html: false,
+      quiet: true,
+      enableCode: false,
+      inlineAssets: true,
+      reportFilename: 'AutomationTest',
+      timestamp: 'mmddyyyy_HHMMss',
+      charts: true,
+      reportPageTitle: 'one-platform-test',
+    }
+  },
+  screenshotsFolder: 'cypress/screenshots',
+  videosFolder: 'cypress/videos',
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
