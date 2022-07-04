@@ -10,7 +10,7 @@ class LoginPage
 
         setPassWord(password)
         {
-            cy.get('[data-test="password"]').type(password,{log:false})
+            cy.get('[data-test="password"]').type(password,{log:false},{parseSpecialCharSequences:false})
             return this
         }
     
