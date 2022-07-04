@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-
+/// <reference types="cypress-xpath" />
 import LoginPage from '../helper/pageobject/loginPage'
 import ProductPage from "../helper/pageobject/productPage"
 

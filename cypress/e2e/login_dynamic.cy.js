@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-
+/// <reference types="cypress-xpath" />
 import LoginPage from '../helper/pageobject/loginPage'
 import users from '/cypress/fixtures/users.json'
 describe('Login Page Tests Dynamic', () => {

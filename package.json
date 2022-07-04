@@ -10,6 +10,8 @@
   "author": "Veerkumar Patil",
   "license": "TBD",
   "devDependencies": {
+    "@percy/cli": "^1.5.1",
+    "@percy/cypress": "^3.1.2",
     "@shelex/cypress-allure-plugin": "^2.26.5",
     "allure-commandline": "^2.17.2",
     "cypress": "^10.1.0",

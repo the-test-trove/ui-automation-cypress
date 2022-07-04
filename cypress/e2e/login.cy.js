@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-
+/// <reference types="cypress-xpath" />
 import LoginPage from '../helper/pageobject/loginPage'
 describe('Login Page Tests', () => {
     it('Verify User should be able to login with valid credentials', () => {
