@@ -2,7 +2,9 @@ import LoginPage from '../helper/pageobject/loginPage'
 import ProductPage from "../helper/pageobject/productPage"
 
 describe('Add to Cart Test', () => {
-
+    beforeEach(() => {
+        cy.viewport(Cypress.env('width'), Cypress.env('height'));       
+    })
     
     it('Verify User should be able to login with valid credentials and add items to the cart', () => {
       
