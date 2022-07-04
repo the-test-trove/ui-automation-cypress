@@ -41,6 +41,16 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       return require('./cypress/plugins/index.js')(on, config)
     },
+    setupNodeEvents(on, config) {
+      on('task', {
+        log(message) {
+          console.log(message)
+      
+          return null
+        },
+      })
+    },
+
     baseUrl: 'https://www.saucedemo.com',
     experimentalSessionAndOrigin: true,
   },

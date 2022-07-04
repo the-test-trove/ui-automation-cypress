@@ -31,3 +31,9 @@ The framework demonstrate following use cases
  ### Integrate with Github Actions
  The test execution can be done in github with Github actions.
  Report URL: https://the-test-trove.github.io/ui-automation-cypress 
+
+
+
+
+
+
