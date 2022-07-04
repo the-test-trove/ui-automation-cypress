@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 import LoginPage from '../helper/pageobject/loginPage'
 import ProductPage from "../helper/pageobject/productPage"
 

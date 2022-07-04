@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 
 import LoginPage from '../helper/pageobject/loginPage'
 describe('Login Page Tests', () => {

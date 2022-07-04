@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 import users from '/cypress/fixtures/users.json'
 describe('Login Page Tests Custom Command', () => {
 
