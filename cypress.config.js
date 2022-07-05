@@ -1,5 +1,5 @@
 const { defineConfig } = require('cypress')
-
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 module.exports = defineConfig({
   chromeWebSecurity: false,
   includeShadowDom: true,
@@ -39,18 +39,16 @@ module.exports = defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
-    },
-    setupNodeEvents(on, config) {
-      on('task', {
+      allureWriter(on, config);
+      on('task',{
         log(message) {
           console.log(message)
       
           return null
-        },
+        }
       })
+      return config;
     },
-
     baseUrl: 'https://www.saucedemo.com',
     experimentalSessionAndOrigin: true,
   },
