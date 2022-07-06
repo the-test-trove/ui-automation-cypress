@@ -31,3 +31,18 @@ Cypress.Commands.add("Login",(username, password) =>
     cy.get('[data-test="password"]').type(password,{log:false})
     cy.get('[data-test="login-button"]').as("btnLogin").click()       
 })
+
+Cypress.Commands.add('isInViewPort', element => {
+    cy.get(element).then($el => {
+  
+      const bottom = Cypress.$(cy.state("window")).height();
+      const rect = $el[0].getBoundingClientRect();
+  
+      expect(rect.top).to.be.least(0)
+      expect(rect.bottom).to.be.greaterThan(0);
+      expect(rect.top).to.be.lessThan(bottom);
+      expect(rect.bottom).to.be.lessThan(bottom);
+  
+  
+    })
+  })
