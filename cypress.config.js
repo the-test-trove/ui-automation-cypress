@@ -51,6 +51,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://www.saucedemo.com',
     experimentalSessionAndOrigin: true,
+    baseUrl_lab:'https://saucelabs.com/'
   },
   env: {
     width: 1920,
