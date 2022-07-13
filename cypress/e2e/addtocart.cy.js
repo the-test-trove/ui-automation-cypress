@@ -16,6 +16,22 @@ describe('Add to Cart Test', () => {
         ProductPage.getAllProducts().then(item => {
             cy.log(item.length)
         })
+        cy.lighthouse({
+            performance: 50,
+            accessibility: 90,
+            "best-practices": 50,
+            seo: 50,
+            pwa: 50,
+        },  {
+            formFactor: 'desktop',
+            screenEmulation: {
+              mobile: false,
+              disable: false,
+              width: Cypress.config('viewportWidth'),
+              height: Cypress.config('viewportHeight'),
+              deviceScaleRatio: 1,
+            },
+          });
         ProductPage.addItemToCart().click()
 
     });
@@ -30,6 +46,7 @@ describe('Add to Cart Test', () => {
                 expect(title.text()).eq("Products")
             })
         ProductPage.getAllProducts().then(item => cy.log(item.text()))
+        cy.pa11y();
         ProductPage.addItemToCart().click()
 
     });
