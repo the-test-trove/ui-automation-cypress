@@ -26,6 +26,7 @@
 
 import "@cypress-audit/lighthouse/commands";
 import "@cypress-audit/pa11y/commands";
+chai.config.truncateThreshold = 0
 Cypress.Commands.add("Login",(username, password) =>
 {
     cy.get('[data-test="username"]').type(username)
