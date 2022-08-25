@@ -21,6 +21,7 @@ require('cypress-xpath');
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 import '@shelex/cypress-allure-plugin';
+require('cypress-terminal-report/src/installLogsCollector')();
 
 if (Cypress.config('hideXHR')) {
     const app = window.top;

@@ -47,6 +47,7 @@ module.exports = defineConfig({
           return null
         }
       })
+      require('cypress-terminal-report/src/installLogsPrinter')(on);
       return require('./cypress/plugins/index.js')(on, config)
 
     },
