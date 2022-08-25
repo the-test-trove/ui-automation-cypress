@@ -35,6 +35,13 @@ if (Cypress.config('hideXHR')) {
       app.document.head.appendChild(style);
     }
 }
+Cypress.on("window:before:load", win => {
+  cy.stub(win.console, "error").callsFake(msg => {
+    // log out to the terminal
+    cy.now("task", "error", msg)
+    // log to Command Log and fail the test
+  })
+})
 Cypress.on('test:after:run', (test, runnable) => {
   if (test.state === 'failed') {
       const filename = `${titleToFileName(runnable.parent.title)} -- ${titleToFileName(test.title)} (failed).png`;
