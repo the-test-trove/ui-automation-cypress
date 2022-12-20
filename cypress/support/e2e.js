@@ -35,6 +35,9 @@ if (Cypress.config('hideXHR')) {
       app.document.head.appendChild(style);
     }
 }
+beforeEach(() => {
+  cy.allure().tag(Cypress.browser.name)
+})
 Cypress.on("window:before:load", win => {
   cy.stub(win.console, "error").callsFake(msg => {
     // log out to the terminal
