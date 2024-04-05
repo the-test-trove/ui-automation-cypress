@@ -3,7 +3,7 @@
 describe("Curl integration", () => {
     it('Code to interate curl in cypress', () => {
         cy.task('log','The key value pair needs to be in single quotes')
-        cy.task('log', 'cy.exec("curl --request POST https://spaship.stage.redhat.com/api/v1/applications/deploy/ecosystem-catalog/qa -H Authorization:Bearer apikey --form upload=@test.zip --form name=test --form path=/get-started --form ref=1.1.9")')
+        cy.task('log', 'cy.exec("curl -X GET "https://fakerestapi.azurewebsites.net/api/v1/Activities" -H "accept: text/plain; v=1.0")')
     })
                   
 })
